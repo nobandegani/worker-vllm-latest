@@ -6,6 +6,19 @@ Deploy OpenAI-Compatible Blazing-Fast LLM Endpoints powered by the [vLLM](https:
 
 </div>
 
+## Fork Changes
+
+This is a fork of [runpod-workers/worker-vllm](https://github.com/runpod-workers/worker-vllm) with the following changes:
+
+**Docker Image:** `inoland33/runpod-worker-vllm:latest`
+
+- **Upgraded vLLM to 0.18.0** (from 0.16.0)
+  - vLLM version is now configurable via the `VLLM_VERSION` Docker build arg
+  - Updated OpenAI serving layer to use the new `OpenAIServingRender` class introduced in vLLM 0.18.0
+  - Removed deprecated `swap_space` and `worker_use_ray` engine arg defaults
+
+---
+
 ## Table of Contents
 
 - [Setting up the Serverless Worker](#setting-up-the-serverless-worker)
@@ -35,7 +48,7 @@ Deploy OpenAI-Compatible Blazing-Fast LLM Endpoints powered by the [vLLM](https:
 
 **🚀 Deploy Guide**: Follow our [step-by-step deployment guide](https://docs.runpod.io/serverless/vllm/get-started) to deploy using the RunPod Console.
 
-**📦 Docker Image**: `runpod/worker-v1-vllm:<version>`
+**📦 Docker Image**: `inoland33/runpod-worker-vllm:latest`
 
 - **Available Versions**: See [GitHub Releases](https://github.com/runpod-workers/worker-vllm/releases)
 - **CUDA Compatibility**: Requires CUDA >= 12.1
