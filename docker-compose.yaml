@@ -1,0 +1,24 @@
+#docker compose --env-file .env -f docker-compose.yaml build
+#docker compose --env-file .env -f docker-compose.yaml push
+
+services:
+  runpod-worker-vllm:
+    init: true
+    container_name: runpod-worker-vllm
+    platform: linux/amd64
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: inoland33/runpod-worker-vllm:latest
+    #command:
+    #ports:
+    #environment:
+    security_opt:
+      - "label=type:nvidia_container_t"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
