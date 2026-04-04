@@ -5,7 +5,7 @@ RUN apt-get update -y \
 
 RUN ldconfig /usr/local/cuda-12.9/compat/
 
-ARG VLLM_VERSION="0.18.0"
+ARG VLLM_VERSION="0.19.0"
 
 # Install vLLM with FlashInfer
 RUN python3 -m pip install --upgrade pip && \
